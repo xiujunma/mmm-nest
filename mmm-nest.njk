@@ -1,0 +1,31 @@
+<div class="mmm-nest">
+  {% if error %}
+  <div class="nest-error">{{ error }}</div>
+  {% elif isLoading %}
+  <div class="nest-loading">Loading Nest data…</div>
+  {% elif thermostats | length == 0 %}
+  <div class="nest-empty">No thermostats available.</div>
+  {% else %}
+  <div class="nest-devices">
+    {% for thermostat in thermostats %}
+    <div class="nest-thermostat">
+      <div class="nest-header">
+        <span class="nest-name">{{ thermostat.name }}</span>
+      </div>
+      <div class="nest-metrics">
+        <span class="nest-temp-ambient">{{ thermostat.ambientDisplay }}</span>
+      </div>
+      <div class="nest-status">
+      <span class="nest-humidity">Humidity: {{ thermostat.humidityDisplay }}</span>
+      {% if thermostat.hvacMode %}
+      <span class="nest-mode">Mode: {{ thermostat.hvacMode }}</span>
+      {% endif %}
+      {% if thermostat.hvacState %}
+      <span class="nest-state">HVAC: {{ thermostat.hvacState }}</span>
+      {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
