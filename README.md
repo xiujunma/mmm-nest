@@ -23,8 +23,8 @@ MagicMirror² module for displaying live data from Google Nest thermostats. It u
    ```
 2. Clone this repository and install dependencies:
    ```sh
-   git clone https://github.com/your-user/mmm-nest.git MMM-Nest
-   cd MMM-Nest
+   git clone https://github.com/xiujunma/mmm-nest.git
+   cd mmm-nest
    npm install
    ```
 3. Restart MagicMirror so the new module is loaded.
@@ -59,7 +59,7 @@ When configuration is incomplete, the module surface an on-screen error and logs
 
 ## Authentication
 
-MMM-Nest relies on the [homebridge-nest](https://github.com/chrisjshull/homebridge-nest) project for Google authentication. Follow its **"Using Google Accounts"** guide to obtain an `issueToken` URL and the associated `cookies` string:
+mmm-nest relies on the [homebridge-nest](https://github.com/chrisjshull/homebridge-nest) project for Google authentication. Follow its **"Using Google Accounts"** guide to obtain an `issueToken` URL and the associated `cookies` string:
 
 1. Open a browser session where you are signed into the Google account linked to your Nest devices.
 2. Use the developer tools Network tab to capture the `issueToken` endpoint call as described in the homebridge-nest documentation.
@@ -79,16 +79,6 @@ Tokens and cookies can expire, especially after password changes or new logins. 
 - `Missing configuration: issueToken, cookies`: At least one required token is empty; double-check your config.
 - `Loading Nest data…` never disappears: Authentication likely failed; refresh tokens or inspect the MagicMirror logs for Nest API errors.
 - No thermostats displayed: Ensure your Nest account has active devices and that they are shared with the Google profile used for authentication.
-
-## Development
-
-With MagicMirror running in server mode:
-
-```sh
-cd ~/MagicMirror/modules/MMM-Nest
-npm install
-pm2 restart mm
-```
 
 Logs appear in the MagicMirror server console; use them to confirm socket notifications or debug data parsing.
 
