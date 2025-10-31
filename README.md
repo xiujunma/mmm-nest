@@ -1,4 +1,4 @@
-# MMM-Nest
+# mmm-nest
 
 MagicMirror² module for displaying live data from Google Nest thermostats. It uses the `homebridge-nest` API client under the hood, giving you quick access to ambient temperature, humidity, operating mode, and HVAC status for every thermostat on your Nest account.
 
@@ -13,7 +13,6 @@ MagicMirror² module for displaying live data from Google Nest thermostats. It u
 
 - A working MagicMirror² installation running on Node.js 16 or higher.
 - Google Nest thermostat(s) linked to your Google account.
-- The ability to obtain a Nest `issueToken` URL and `cookies` string (see [Authentication](#authentication) below).
 
 ## Installation
 
