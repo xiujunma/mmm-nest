@@ -12,9 +12,15 @@ module.exports = NodeHelper.create({
   start: function () {
     Log.info("Node Helper started...", NestConnection);
     this.nestConnection = null;
+    this.temperatureUnit = "F";
   },
   socketNotificationReceived: function (notification, payload) {
     if (notification === "MMM_NEST_CONFIG") {
+      const requestedUnit =
+        typeof payload.temperatureUnit === "string"
+          ? payload.temperatureUnit.toUpperCase()
+          : null;
+      this.temperatureUnit = requestedUnit === "C" ? "C" : "F";
       const onUpdate = (data) => {
         const thermos = this.logThermostats(data);
         Log.info("[MMM-Nest] Received update", thermos);
@@ -57,6 +63,22 @@ module.exports = NodeHelper.create({
     const thermostats =
       (data && data.devices && data.devices.thermostats) || {};
     const thermostatIds = Object.keys(thermostats);
+    const unit = this.temperatureUnit === "C" ? "C" : "F";
+    const convertTemp = (value) => {
+      if (value === undefined || value === null) {
+        return value;
+      }
+      return unit === "F" ? (value * 9) / 5 + 32 : value;
+    };
+    const formatTemp = (value) => {
+      if (value === undefined || value === null) {
+        return "n/a";
+      }
+      const converted = convertTemp(value);
+      const rounded =
+        unit === "F" ? Math.round(converted) : Math.round(converted * 10) / 10;
+      return `${rounded}°${unit}`;
+    };
 
     if (thermostatIds.length === 0) {
       Log.info("No thermostats found in payload.");
@@ -68,16 +90,6 @@ module.exports = NodeHelper.create({
     thermostatIds.forEach((deviceId) => {
       const thermo = {};
       const thermostat = thermostats[deviceId];
-      const toFahrenheit = (value) => {
-        if (value === undefined || value === null) {
-          return value;
-        }
-        return Math.round((value * 9) / 5 + 32);
-      };
-      const formatTemp = (value) =>
-        value === undefined || value === null
-          ? "n/a"
-          : `${toFahrenheit(value)}°F`;
       thermo.id = deviceId;
       thermo.name = thermostat.name;
       thermo.current_temperature = formatTemp(thermostat.current_temperature);
