@@ -2,6 +2,8 @@
 
 MagicMirror² module for displaying live data from Google Nest thermostats. It uses the `homebridge-nest` API client under the hood, giving you quick access to ambient temperature, humidity, operating mode, and HVAC status for every thermostat on your Nest account.
 
+![ ](screenshot.png "Demo")
+
 ## Features
 
 - Tracks multiple Nest thermostats in real time using Google's Smart Device Management API.
@@ -48,11 +50,11 @@ Add the module to the `modules` array in your MagicMirror `config/config.js` fil
 
 ### Options
 
-| Option           | Type   | Required | Description                                                                 |
-| ---------------- | ------ | -------- | --------------------------------------------------------------------------- |
-| `issueToken`     | String | Yes      | Google Nest issue token URL produced during authentication.                 |
-| `cookies`        | String | Yes      | Semicolon-separated cookie string for the same session used to get token.   |
-| `temperatureUnit`| String | No       | Display hint (`"F"` or `"C"`). Conversion defaults to °F if omitted.        |
+| Option            | Type   | Required | Description                                                               |
+| ----------------- | ------ | -------- | ------------------------------------------------------------------------- |
+| `issueToken`      | String | Yes      | Google Nest issue token URL produced during authentication.               |
+| `cookies`         | String | Yes      | Semicolon-separated cookie string for the same session used to get token. |
+| `temperatureUnit` | String | No       | Display hint (`"F"` or `"C"`). Conversion defaults to °F if omitted.      |
 
 When configuration is incomplete, the module surface an on-screen error and logs the missing keys to the MagicMirror server console.
 
