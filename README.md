@@ -32,6 +32,19 @@ MagicMirror² module for displaying live data from Google Nest thermostats. It u
 
 > **Note:** If you prefer to copy the module manually, make sure the final folder name matches the module name `mmm-nest`.
 
+## Update
+
+1. Change into the module directory inside your MagicMirror installation:
+   ```sh
+   cd ~/MagicMirror/modules/MMM-nest
+   ```
+2. Pull the latest changes and reinstall dependencies:
+   ```sh
+   git pull
+   npm install
+   ```
+3. Restart MagicMirror to apply the update.
+
 ## Configuration
 
 Add the module to the `modules` array in your MagicMirror `config/config.js` file:
@@ -43,7 +56,7 @@ Add the module to the `modules` array in your MagicMirror `config/config.js` fil
   config: {
     issueToken: "https://accounts.google.com/...",
     cookies: "NID=...; __Secure-3PAPISID=...; ...",
-    temperatureUnit: "F"
+    temperatureUnit: "F",
   }
 }
 ```
@@ -82,6 +95,14 @@ Tokens and cookies can expire, especially after password changes or new logins. 
 - No thermostats displayed: Ensure your Nest account has active devices and that they are shared with the Google profile used for authentication.
 
 Logs appear in the MagicMirror server console; use them to confirm socket notifications or debug data parsing.
+
+## Development
+
+### Linting
+
+1. Install dependencies (includes ESLint): `npm install`
+2. Run the linter from the module root: `npm run lint`
+3. Optionally auto-fix simple issues: `npm run lint -- --fix`
 
 ## License
 

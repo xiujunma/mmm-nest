@@ -1,10 +1,28 @@
 {
-  "name": "mmm-nest",
+  "name": "MMM-nest",
   "version": "1.0.0",
   "description": "Nest Module for MagicMirror²",
+  "keywords": [
+    "magicmirror",
+    "magicmirror-module",
+    "nest",
+    "homebridge"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiujunma/MMM-nest.git"
+  },
   "license": "MIT",
   "author": "Xiujun Ma <xiujun.ma@live.com>",
+  "scripts": {
+    "lint": "eslint ."
+  },
   "dependencies": {
     "homebridge-nest": "^4.6.10"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "globals": "^15.7.0"
   }
 }
