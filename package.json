@@ -15,7 +15,7 @@
   "license": "MIT",
   "author": "Xiujun Ma <xiujun.ma@live.com>",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint"
   },
   "dependencies": {
     "homebridge-nest": "^4.6.10"

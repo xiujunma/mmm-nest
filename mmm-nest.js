@@ -1,11 +1,11 @@
-Module.register("mmm-nest", {
+Module.register("MMM-nest", {
   defaults: {
     issueToken: "",
     cookies: "",
     temperatureUnit: null,
   },
   getStyles() {
-    return ["mmm-nest.css"];
+    return ["MMM-nest.css"];
   },
 
   start() {
@@ -65,7 +65,7 @@ Module.register("mmm-nest", {
   },
 
   getTemplate() {
-    return "mmm-nest.njk";
+    return "MMM-nest.njk";
   },
 
   getTemplateData() {

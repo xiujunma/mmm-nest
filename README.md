@@ -1,4 +1,4 @@
-# mmm-nest
+# MMM-nest
 
 MagicMirror² module for displaying live data from Google Nest thermostats. It uses the `homebridge-nest` API client under the hood, giving you quick access to ambient temperature, humidity, operating mode, and HVAC status for every thermostat on your Nest account.
 
@@ -24,13 +24,13 @@ MagicMirror² module for displaying live data from Google Nest thermostats. It u
    ```
 2. Clone this repository and install dependencies:
    ```sh
-   git clone https://github.com/xiujunma/mmm-nest.git
-   cd mmm-nest
+   git clone https://github.com/xiujunma/MMM-nest.git
+   cd MMM-nest
    npm install
    ```
 3. Restart MagicMirror so the new module is loaded.
 
-> **Note:** If you prefer to copy the module manually, make sure the final folder name matches the module name `mmm-nest`.
+> **Note:** If you prefer to copy the module manually, make sure the final folder name matches the module name `MMM-nest`.
 
 ## Update
 
@@ -51,14 +51,14 @@ Add the module to the `modules` array in your MagicMirror `config/config.js` fil
 
 ```js
 {
-  module: "mmm-nest",
+  module: "MMM-nest",
   position: "top_right",
   config: {
     issueToken: "https://accounts.google.com/...",
     cookies: "NID=...; __Secure-3PAPISID=...; ...",
     temperatureUnit: "F",
   }
-}
+},
 ```
 
 ### Options
@@ -73,7 +73,7 @@ When configuration is incomplete, the module surface an on-screen error and logs
 
 ## Authentication
 
-mmm-nest relies on the [homebridge-nest](https://github.com/chrisjshull/homebridge-nest) project for Google authentication. Follow its **"Using Google Accounts"** guide to obtain an `issueToken` URL and the associated `cookies` string:
+MMM-nest relies on the [homebridge-nest](https://github.com/chrisjshull/homebridge-nest) project for Google authentication. Follow its **"Using Google Accounts"** guide to obtain an `issueToken` URL and the associated `cookies` string:
 
 1. Open a browser session where you are signed into the Google account linked to your Nest devices.
 2. Use the developer tools Network tab to capture the `issueToken` endpoint call as described in the homebridge-nest documentation.
@@ -84,8 +84,8 @@ Tokens and cookies can expire, especially after password changes or new logins. 
 
 ## Display & Customization
 
-- Styling lives in `mmm-nest.css`; adjust font sizes or colors to match your dashboard.
-- The layout is rendered with `mmm-nest.njk`. You can add or remove fields (e.g., target temperature range) by editing the template.
+- Styling lives in `MMM-nest.css`; adjust font sizes or colors to match your dashboard.
+- The layout is rendered with `MMM-nest.njk`. You can add or remove fields (e.g., target temperature range) by editing the template.
 - All thermostat data arrives through the socket interface—check the MagicMirror server logs for payload details when tweaking the UI.
 
 ## Troubleshooting
@@ -101,8 +101,8 @@ Logs appear in the MagicMirror server console; use them to confirm socket notifi
 ### Linting
 
 1. Install dependencies (includes ESLint): `npm install`
-2. Run the linter from the module root: `npm run lint`
-3. Optionally auto-fix simple issues: `npm run lint -- --fix`
+2. Run the linter from the module root: `node --run lint`
+3. Optionally auto-fix simple issues: `node --run lint -- --fix`
 
 ## License
 

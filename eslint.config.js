@@ -1,7 +1,9 @@
 const js = require("@eslint/js");
 const globals = require("globals");
 
-module.exports = [
+const defineConfig = (configs) => configs; // align with ESLint defineConfig helper
+
+module.exports = defineConfig([
   {
     files: ["**/*.js"],
     ignores: ["node_modules/**", "eslint.config.js"],
@@ -14,7 +16,7 @@ module.exports = [
     }
   },
   {
-    files: ["mmm-nest.js"],
+    files: ["MMM-nest.js"],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -30,4 +32,4 @@ module.exports = [
       sourceType: "commonjs"
     }
   }
-];
+]);
