@@ -1,7 +1,9 @@
 {
-  "name": "MMM-nest",
+  "name": "mmm-nest",
   "version": "1.0.0",
   "description": "Nest Module for MagicMirror²",
+  "main": "MMM-nest.js",
+  "type": "commonjs",
   "keywords": [
     "magicmirror",
     "magicmirror-module",
