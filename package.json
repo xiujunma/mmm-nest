@@ -23,7 +23,7 @@
     "homebridge-nest": "^4.6.10"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^10.0.1",
     "eslint": "^9.39.2",
     "globals": "^17.0.0"
   }
